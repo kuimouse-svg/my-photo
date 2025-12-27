@@ -1,0 +1,8 @@
+{
+  "name": "travel photo",
+  "description": "An intelligent photo organization tool that uses Gemini AI to automatically categorize photos by date and location for effortless management.",
+  "requestFramePermissions": [
+    "camera",
+    "geolocation"
+  ]
+}
