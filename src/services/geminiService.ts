@@ -5,7 +5,7 @@ import { AnalysisResult } from "../types";
 const MODEL_NAME = 'gemini-3-flash-preview';
 
 export const analyzeImage = async (base64Data: string, mimeType: string): Promise<AnalysisResult> => {
-  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+  const genAI = new GoogleGenerativeAI(import.meta.env.VITE_GEMINI_API_KEY || '');
   
   const prompt = `Analyze this image to determine its date and location using your internal knowledge. 
   1. Identify the specific location name in Japanese (e.g. "東京都 千代田区の皇居外苑付近").
@@ -96,3 +96,4 @@ export const identifyLocation = async (lat: number, lng: number, base64Data: str
     return "特定できませんでした";
   }
 };
+
