@@ -1,4 +1,5 @@
-
+// @ts-ignore
+import { GoogleGenerativeAI } from "@google/generative-ai";
 import { GoogleGenAI, Type } from "@google/genai";
 import { AnalysisResult } from "../types";
 
@@ -96,4 +97,5 @@ export const identifyLocation = async (lat: number, lng: number, base64Data: str
     return "特定できませんでした";
   }
 };
+
 
