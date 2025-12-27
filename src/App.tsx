@@ -386,16 +386,21 @@ const App: React.FC = () => {
             />
           )}
 
-          {viewMode === 'all' && (
-            <div className="max-w-[1400px] mx-auto p-10">
-              <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6 pb-20">
-                {filteredPhotosByDate.map(p => (
-                  <PhotoCard key={p.id} photo={p} onFocus={() => handleFocusPhoto(p)} />
-                ))}
-              </div>
-            </div>
-          )}
+         {viewMode === 'all' && (
+  <div className="max-w-[1400px] mx-auto p-10">
+    <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6 pb-20">
+      {filteredPhotosByDate.map(p => (
+        <div 
+          key={p.id} 
+          onClick={() => setSelectedPhotoForModal(p)} 
+          className="cursor-pointer transition-transform hover:scale-[1.02]"
+        >
+          <PhotoCard photo={p} onFocus={() => handleFocusPhoto(p)} />
         </div>
+      ))}
+    </div>
+  </div>
+)}
       </main>
 
       {selectedPhotoForModal && (
@@ -436,3 +441,4 @@ const App: React.FC = () => {
 };
 
 export default App;
+
